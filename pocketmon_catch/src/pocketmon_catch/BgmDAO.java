@@ -26,5 +26,17 @@ public class BgmDAO {
 		
 		mp3.play(ohbak.getPath());
 	}
+	public void monsterBallPlay() {
+		String defaultPath = "C:\\Users\\SMHRD\\Desktop\\PK_BGM\\";
+		BgmDTO monsterBall = new BgmDTO(defaultPath+"Monsterball.MP3");
+		
+		mp3.play(monsterBall.getPath());
+	}
+	public void getPlay() {
+		String defaultPath = "C:\\Users\\SMHRD\\Desktop\\PK_BGM\\";
+		BgmDTO get = new BgmDTO(defaultPath+"getPM.MP3");
+		
+		mp3.play(get.getPath());
+	}
 
 }
