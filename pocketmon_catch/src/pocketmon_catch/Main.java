@@ -1,16 +1,13 @@
 package pocketmon_catch;
 
-<<<<<<< HEAD
+
 import java.util.Scanner;
-=======
 import javazoom.jl.player.MP3Player;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-17/pocketmon_catch.git
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-<<<<<<< HEAD
 		Scanner sc = new Scanner(System.in);
 		UserDAO udao = new UserDAO();
 		PocketDAO podao = new PocketDAO();
@@ -65,13 +62,11 @@ public class Main {
 			}
 		}
 			
-=======
 		MP3Player mp3 = new MP3Player();
 		BgmDAO bgm = new BgmDAO();
 
 		System.out.println("즐거운 포켓몬월드 캐치!");
 
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-17/pocketmon_catch.git
 	}
 
 }
