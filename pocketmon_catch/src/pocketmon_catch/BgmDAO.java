@@ -38,5 +38,15 @@ public class BgmDAO {
 		
 		mp3.play(get.getPath());
 	}
+	public void battlePlay() {
+		String defaultPath = "C:\\Users\\SMHRD\\Desktop\\PK_BGM\\";
+		BgmDTO battle = new BgmDTO(defaultPath+"battle.MP3");
+		
+		mp3.play(battle.getPath());
+	}
+	
+	public void bgmStop() {
+		mp3.stop();
+	}
 
 }
