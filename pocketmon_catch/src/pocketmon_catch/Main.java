@@ -15,14 +15,16 @@ public class Main {
 		UserDAO udao = new UserDAO();
 		PocketDAO podao = new PocketDAO();
 		PlayDAO pldao = new PlayDAO();
-		
+		BgmDAO bgm = new BgmDAO();
 		
 		
 		while(true) {
+			bgm.ostPlay();
 			System.out.println("즐거운 포켓몬월드 캐치!");
 			System.out.print("[1]로그인 [2]회원가입 [3]랭킹보기 [4]닉네임수정 [5]회원탈퇴 [6]게임종료 ");
 			int choice = sc.nextInt();
 			if(choice==1) {
+				
 				System.out.print("아이디입력 : ");
 				String ID = sc.next();
 				System.out.print("비밀번호입력 : ");
@@ -60,6 +62,7 @@ public class Main {
 			}else if(choice==5) {
 				
 			}else {
+				bgm.bgmStop();
 				System.out.println("게임이 종료되었습니다.");
 				break;
 			}
