@@ -2,10 +2,17 @@ package pocketmon_catch;
 
 public class PlayDTO {
 	
+	private String ID;
 	private String NICK;
 	private int SCORE;
 	private String INDATE;
 	
+	public String getID() {
+		return ID;
+	}
+	public void setID(String iD) {
+		ID = iD;
+	}
 	public String getNICK() {
 		return NICK;
 	}

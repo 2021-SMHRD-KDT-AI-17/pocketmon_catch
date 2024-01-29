@@ -44,11 +44,12 @@ public class PlayDAO {
 		try {
 			getConn();
 			
-			String sql = "INSERT INTO PM_PLAY(NICK,SCORE) VALUES(?,?)";
+			String sql = "INSERT INTO PM_PLAY(ID, NICK,SCORE) VALUES(?,?,?)";
 			
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getNICK());
-			psmt.setInt(2, dto.getSCORE());
+			psmt.setString(1, dto.getID());
+			psmt.setString(2, dto.getNICK());
+			psmt.setInt(3, dto.getSCORE());
 			
 			cnt = psmt.executeUpdate();
 			if(cnt>0) {
