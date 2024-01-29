@@ -3,8 +3,12 @@ package pocketmon_catch;
 import java.util.Random;
 import java.util.Scanner;
 
+import javazoom.jl.player.MP3Player;
+
 public class PockBattle {
 	
+	
+	BgmDAO bgm = new BgmDAO();
 	private String PM_NAME;
 	private int PM_HP;
 
@@ -14,11 +18,22 @@ public class PockBattle {
 		PM_HP = pM_HP;
 	}
 
+	public String getPM_NAME() {
+		return PM_NAME;
+	}
+
+	public int getPM_HP() {
+		return PM_HP;
+	}
+
 	public void atk() {
 		PM_HP = PM_HP - 10;
 	}
 	
 	public void ballThrow(int heart, int ball) {
+		int Ball = ball;
+		int Heart = heart;
+		
 		Random rd = new Random();
 		System.out.println("\r\n"
 				+ "\r\n"
@@ -120,18 +135,25 @@ public class PockBattle {
 		
 		int monCatch = rd.nextInt(PM_HP)+1;
 		if(monCatch <=10) {
+			bgm.getPlay();
 			System.out.println(PM_NAME + "(을)를 잡아냈다!!  획득 POINT : " + PM_HP);
+        	try {
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+        	bgm.bgmStop();
 		}else {
 			System.out.println(PM_NAME + "(을)를 잡지못했다..");
-			ball -= 1;
-			if(ball == 0) {
+			Ball -= 1;
+			if(Ball == 0) {
 				System.out.println("몬스터볼을 모두 사용하여 목숨이 하나 차감됩니다!");
-				heart -= 1;
-				System.out.println("남은 목숨 : " + heart + "번");
+				Heart -= 1;
+				System.out.println("남은 목숨 : " + Heart + "번");
 				// 새로운 목숨을 시작할 때 볼 개수 초기화
 				System.out.println();
 				System.out.println("오박사님으로부터 몬스터볼 3개를 다시 받았습니다!!");
-				ball = 3;
+				Ball = 3;
 			}
 		}
 	}

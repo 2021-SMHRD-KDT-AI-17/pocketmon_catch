@@ -48,11 +48,9 @@ public class Main {
 					 	if(select == 1) {
 					 		bgm.bgmStop();
 					 		ascii.dr();
-					 		String str = "이야~ 오래 기다리게 했다!\r\n"
-			                		+ "포켓몬스터의 세계에 잘왔단다!\r\n"
+					 		String str = "이야~ "+result.getNICK()+"아(야) 포켓몬스터의 세계에 잘왔단다!\r\n"
 			                		+ "나의 이름은 오박사\r\n"
 			                		+ "모두로부터는 포켓몬박사라고 존경받고 있단다\r\n"
-			                		+ "포켓몬스터, 포켓몬\r\n"
 			                		+ "이 세계에는 포켓몬스터라고 불려지는 생명체들이 도처에 살고있다\r\n"
 			                		+ "사람은 포켓몬들과 정답게 지내거나\r\n"
 			                		+ "함께 싸우거나 서로 도와가며 살아가고 있단다\r\n"
@@ -67,11 +65,12 @@ public class Main {
 			                try {
 			                    for (int i = 0; i < cut.length; i++) {
 			                        System.out.print(cut[i]);
-			                        Thread.sleep(90);
+			                        Thread.sleep(50);
 			                    }
 			                } catch (InterruptedException e) {
 			                    e.printStackTrace();
-			                }
+			                } 
+			                System.out.println();
 			                bgm.ohbakPlay();
 			                
 			                String choice1 = "";
@@ -92,7 +91,7 @@ public class Main {
 			                	System.out.println("꼬북꼬북!");
 			                	choice1 = "꼬부기";
 			                }
-			                
+			                bgm.bgmStop();
 			                System.out.println(result.getNICK()+"은(는) 오박사님에게 몬스터볼 3개를 받았다!");
 			                int ball = 3;
 			                int heart = 3;
@@ -106,9 +105,50 @@ public class Main {
 			                Random rd = new Random();
 			                PocketDTO[] pock = podao.showPocket();
 			                
+			                bgm.battlePlay();
 			                int num2 = rd.nextInt(pock.length);
 			                System.out.println("야생의 "+ pock[num2].getPM_NAME()+"이(가) 등장했다!!\n"
 			                					+"HP : "+pock[num2].getPM_HP());
+			                
+			                PockBattle pb = new PockBattle(pock[num2].getPM_NAME(), pock[num2].getPM_HP());
+			              
+			                System.out.println(pock[num2].getPM_NAME()+"와(과) 배틀이 시작되었다!");
+			                while(true) {
+			                System.out.println("[1] 공격하기 \n"
+			                		+ "[2] 몬스터볼 던지기\n"
+			                		+ "[3] 도망가기\n"
+			                		+ ">> ");
+			                int choice2 = sc.nextInt();
+			                
+			                if (choice2 == 1) {
+			                	System.out.println("가라!" + choice1 + "!!");
+			                	
+			                	pb.atk();
+			                	System.out.println("효과는 굉장했다!\n"
+			                			+pock[num2].getPM_NAME() +"의 HP가 10감소했다.\n"
+			                					+ "HP는 " +pb.getPM_HP()+"가 남았다!" );
+			                	
+			                }else if (choice2 == 2) {
+			                	bgm.monsterBallPlay();
+			                	
+			                	System.out.println("가라! 몬스터볼!!");
+			                	try {
+									Thread.sleep(2000);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+			                	bgm.bgmStop();
+			                	
+			                	pb.ballThrow(heart, ball);
+			                
+			                	
+			                	
+			                }else {
+			                	bgm.bgmStop();
+			                }
+			                
+			               } 
+			                
 			                
 					 		
 					 	}else if(select == 2) {
