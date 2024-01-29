@@ -17,7 +17,7 @@ public class Main {
 		BgmDAO bgm = new BgmDAO();
 		PocketASCII ascii = new PocketASCII();
 
-		
+		int score = 0;
 		ascii.open();
 
 		System.out.println();
@@ -96,6 +96,7 @@ public class Main {
 			                int heart = 3;
 			                int chance = 4;
 			                
+			                
 			                System.out.println(choice1 + "! 이제 모험을 떠나볼까?!\n"
 			                		+ "모험중...\n"
 			                		+ "부스럭 부스럭\n"
@@ -112,6 +113,7 @@ public class Main {
 			                PockBattle pb = new PockBattle(pock[num2].getPM_NAME(), pock[num2].getPM_HP());
 			              
 			                System.out.println(pock[num2].getPM_NAME()+"와(과) 배틀이 시작되었다!");
+			                int atk1 = 3;
 			                while(true) {
 			                System.out.println("[1] 공격하기 \n"
 			                		+ "[2] 몬스터볼 던지기\n"
@@ -120,16 +122,20 @@ public class Main {
 			                int choice2 = sc.nextInt();
 			                
 			                if (choice2 == 1) {
-			                	System.out.println("가라! " + choice1 + "!!");
-			                	
-			                	pb.atk();
+			                	if (atk1 == 0 ) {
+			                		System.out.println("남은 공격횟수가 없습니다.");
+			                	}else {
+			                		System.out.println("가라! " + choice1 + "!!");
+			                		pb.atk();
+			                		atk1--;
 			                	System.out.println("효과는 굉장했다!\n"
 			                			+pock[num2].getPM_NAME() +"의 HP가 10감소했다.\n"
-			                					+ "HP는 " +pb.getPM_HP()+"가 남았다!" );
-			                	
+			                					+ "HP는 " +pb.getPM_HP()+"가 남았다!" 
+			                					+ "(남은 공격횟수 :"+atk1+")");
+			                	}
 			                }else if (choice2 == 2) {
 			                	bgm.monsterBallPlay();
-			                	
+			                	ascii.ballTrow();
 			                	System.out.println("가라! 몬스터볼!!");
 			                	try {
 									Thread.sleep(2000);
@@ -138,9 +144,35 @@ public class Main {
 								}
 			                	bgm.bgmStop();
 			                	
-			                	pb.ballThrow(heart, ball);
+			                	int monCatch = rd.nextInt(pb.getPM_HP())+1;
+			            		if(monCatch <=10) {
+			            			bgm.getPlay();
+			            			ascii.ball();
+			            			System.out.println(pock[num2].getPM_NAME() + "(을)를 잡아냈다!!  획득 POINT : " + pb.getPM_HP());
+			                    	try {
+			            				Thread.sleep(2000);
+			            			} catch (InterruptedException e) {
+			            				e.printStackTrace();
+			            			}
+			                    	bgm.bgmStop();
+			                    	score += pb.getPM_HP();
+			                    	break;
+			            		}else {
+			            			System.out.println(pock[num2].getPM_NAME() + "(을)를 잡지못했다..");
+			            			ball -= 1;
+			            			System.out.println("( 남은 몬스터볼 개수 : "+ ball + "개 )");
+			            			if(ball == 0) {
+			            				System.out.println("몬스터볼을 모두 사용하여 목숨이 하나 차감됩니다!");
+			            				heart -= 1;
+			            				System.out.println("남은 목숨 : " + heart + "번");
+			            				// 새로운 목숨을 시작할 때 볼 개수 초기화
+			            				System.out.println();
+			            				System.out.println("오박사님으로부터 몬스터볼 3개를 다시 받았습니다!!");
+			            				ball = 3;
+			            				break;
+			            			}
 			                
-			                	
+			            		}
 			                	
 			                }else {
 			                	bgm.bgmStop();
@@ -156,8 +188,9 @@ public class Main {
 					 				+ "① 공격 시, 야생 몬스터의 HP가 10 줄어들면서\n"
 					 				+ "  몬스터볼로 잡을 수 있는 확률 UP! BUT 내 포인트는 DOWN!\n"
 					 				+ "② 몬스터볼로 잡으면 야생 포켓몬의 남은 HP은 모두 자신의 포인트!\n"
-					 				+ "  야생 몬스터의 HP가 높을수록 잡기 어렵고/n"
-					 				+ "  주어진 몬스터볼을 모두 사용하면 목숨 1개가 사라지니 공격횟수와 몬스터볼을 잘 활용해야 한다!";
+					 				+ "  야생 몬스터의 HP가 높을수록 잡기 어렵다\n"
+					 				+ "★ 주어진 몬스터볼을 모두 사용하면 목숨 1개가 사라지니\n"
+					 				+ "  공격횟수와 몬스터볼을 잘 활용해야 한다!";
 					 				String[] cut = str.split("");
 					                try {
 					                    for (int i = 0; i < cut.length; i++) {
