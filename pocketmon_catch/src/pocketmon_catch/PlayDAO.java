@@ -21,12 +21,6 @@ public class PlayDAO {
 			String user = "campus_23K_AI17_p1_1";  
 			String password = "smhrd1"; 
 						
-			conn = DriverManager.getConnection(url, user, password);
-			if(conn!= null) {
-				System.out.println("DB연결성공!");
-			}else {
-				System.out.println("DB연결실패!");
-			}
 		} catch (Exception e) {
 			e.printStackTrace(); 
 		}
@@ -41,7 +35,6 @@ public class PlayDAO {
 					}catch (SQLException e) {
 						e.printStackTrace();
 					}
-					System.out.println("DB연결종료!");
 	}
 	
 	public int save(PlayDTO dto) {

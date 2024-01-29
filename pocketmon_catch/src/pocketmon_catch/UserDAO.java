@@ -20,12 +20,6 @@ public class UserDAO {
 			String user = "campus_23K_AI17_p1_1";  
 			String password = "smhrd1"; 
 						
-			conn = DriverManager.getConnection(url, user, password);
-			if(conn!= null) {
-				System.out.println("DB연결성공!");
-			}else {
-				System.out.println("DB연결실패!");
-			}
 		} catch (Exception e) {
 			e.printStackTrace(); 
 		}
@@ -40,7 +34,6 @@ public class UserDAO {
 					}catch (SQLException e) {
 						e.printStackTrace();
 					}
-					System.out.println("DB연결종료!");
 	}
 	
 	public UserDTO login(UserDTO dto) {
@@ -138,14 +131,14 @@ public class UserDAO {
 	
 	// ======= 닉네임 수정
 	
-	public int delete(UserDTO dto) {
+	public int delete(String deleteId) {
 		int cnt = 0;
 		try {
 			getConn();
 			String sql = "DELETE FROM PM_USER WHERE ID = ?";
 			
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getID());
+			psmt.setString(1, deleteId);
 			
 			cnt = psmt.executeUpdate();
 			if(cnt>0) {
