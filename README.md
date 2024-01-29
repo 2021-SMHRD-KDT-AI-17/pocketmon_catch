@@ -12,10 +12,11 @@
 <br>
 
 ## 🛠 주요기능
-<img src="https://img.shields.io/badge/Java-F7DF1E?style=flat&logo=Java&logoColor=white"/> <img src="https://img.shields.io/badge/Oracle-F80000?style=flat&logo=Oracle&logoColor=white"/>
+<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/> <img src="https://img.shields.io/badge/Oracle-F80000?style=flat&logo=Oracle&logoColor=white"/>
 <br>
 
 ## ⚔ 기술스택
+
 ## ⚙ 시스템 아키텍처
 ## 📝 유스케이스
 ## 〰 서비스 흐름도
