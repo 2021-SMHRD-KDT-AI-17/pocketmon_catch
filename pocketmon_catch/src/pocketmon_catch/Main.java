@@ -152,12 +152,23 @@ public class Main {
 			                
 					 		
 					 	}else if(select == 2) {
-					 		System.out.println("목숨은 총 3번 주어지고\n."
+					 		String str = "목숨은 총 3번 주어지고\n"
 					 				+ "공격횟수 및 몬스터 볼 횟수도 3번 주어진다.\n"
 					 				+ "공격시 야생 몬스터의 HP가 10 줄어들면서\n"
 					 				+ "몬스터볼로 잡을 수 있는 확률 UP! BUT 내 포인트는 DOWN!\n"
 					 				+ "몬스터볼로 잡으면 야생 포켓몬의 남은 HP은 모두 자신의 포인트!\n"
-					 				+ "야생 몬스터의 HP가 높을 수록 잡기 어려우니 공격횟수와 몬스터볼을 잘 활용해야 한다!");
+					 				+ "야생 몬스터의 HP가 높을수록 잡기 어려우니 공격횟수와 몬스터볼을 잘 활용해야 한다!";
+					 				String[] cut = str.split("");
+					                try {
+					                    for (int i = 0; i < cut.length; i++) {
+					                        System.out.print(cut[i]);
+					                        Thread.sleep(50);
+					                    }
+					                } catch (InterruptedException e) {
+					                    e.printStackTrace();
+					                } 
+					                System.out.println();
+					                System.out.println();
 					 	
 					 	}else if(select == 3) {
 							ArrayList<PlayDTO> list = pldao.ranking();
