@@ -160,4 +160,54 @@ public class UserDAO {
 		return cnt;
 	}
 	// ===== 회원정보삭제
+	
+	public int Nickcheck(String Nick) {
+		try {
+			getConn();
+			
+			String sql = "SELECT * FROM PM_USER WHERE NICK = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, Nick);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				return 1; 
+			}
+			
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return 0; 
+	}
+	// ======닉네임 중복검사
+	
+	public int Idcheck(String id) {
+		try {
+			getConn();
+			
+			String sql = "SELECT * FROM PM_USER WHERE ID = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				return 1; 
+			}
+			
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return 0; 
+	}
+	// ======아이디 중복검사
 }
