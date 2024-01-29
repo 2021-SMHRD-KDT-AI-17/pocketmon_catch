@@ -18,7 +18,7 @@ public class PockBattle {
 		PM_HP = PM_HP - 10;
 	}
 	
-	public void ballThrow(int heart) {
+	public void ballThrow(int heart, int ball) {
 		Random rd = new Random();
 		System.out.println("\r\n"
 				+ "\r\n"
@@ -118,13 +118,21 @@ public class PockBattle {
 				+ "@@@@@@@@@@@@@@@@@@#=!!=#@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n"
 				+ "");
 		
-		int ball = rd.nextInt(PM_HP)+1;
-		if(ball<=10) {
+		int monCatch = rd.nextInt(PM_HP)+1;
+		if(monCatch <=10) {
 			System.out.println(PM_NAME + "(을)를 잡아냈다!!  획득 POINT : " + PM_HP);
 		}else {
 			System.out.println(PM_NAME + "(을)를 잡지못했다..");
-			heart -= 1;
-			System.out.println("남은 목숨 : " + heart + "번");
+			ball -= 1;
+			if(ball == 0) {
+				System.out.println("몬스터볼을 모두 사용하여 목숨이 하나 차감됩니다!");
+				heart -= 1;
+				System.out.println("남은 목숨 : " + heart + "번");
+				// 새로운 목숨을 시작할 때 볼 개수 초기화
+				System.out.println();
+				System.out.println("오박사님으로부터 몬스터볼 3개를 다시 받았습니다!!");
+				ball = 3;
+			}
 		}
 	}
 	
