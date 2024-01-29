@@ -82,15 +82,25 @@ public class Main {
 				}
 				
 			}else if(choice==4) {
+				while(true) {
 				System.out.print("수정할 닉네임 입력 : ");
 				String changeNick = sc.next();
 					
-				int result = udao.Idcheck(changeNick); 
+				int result = udao.Nickcheck(changeNick); 
 				
 				if(result == 0) {
-					System.out.println("사용가능한 닉네임입니다.");
+					System.out.print("변경 가능한 닉네임입니다. 변경하시겠습니까? [1]변경진행 [2]변경취소 >>");
+					int modify = sc.nextInt();
+					if (modify == 1) {
+						UserDTO dto = new UserDTO();
+						dto.setNICK(changeNick);
+						int cnt = udao.Nchange(dto);
+						break;
+					}
 				}else {
+					System.out.println("중복된 닉네임입니다. 다시 입력해주세요.");
 					continue;
+				}
 				}
 				
 			}else if(choice==5) {
