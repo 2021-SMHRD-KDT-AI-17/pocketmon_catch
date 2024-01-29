@@ -19,8 +19,8 @@ public class Main {
 
 		int score = 0;
 		ascii.open();
-		System.out.println("즐거운 포켓몬월드 캐치!");
-		System.out.println("포켓몬 월드에 오신걸 환영합니다!");
+
+		System.out.println();
 		
 		while (true) {
 			bgm.ostPlay();
@@ -54,8 +54,7 @@ public class Main {
 			                		+ "이 세계에는 포켓몬스터라고 불려지는 생명체들이 도처에 살고있다\r\n"
 			                		+ "사람은 포켓몬들과 정답게 지내거나\r\n"
 			                		+ "함께 싸우거나 서로 도와가며 살아가고 있단다\r\n"
-			                		+ "하지만 우리들은 포켓몬 전부를 알고 있지는 못하다\r\n"
-			                		+ "포켓몬의 비밀은 아직도 잔뜩 있다!\r\n"
+			                		+ "하지만 포켓몬의 비밀은 아직도 잔뜩 있다!\r\n"
 			                		+ "나는 그것을 밝혀내기 위하여 매일 포켓몬의 연구를 계속하고 있다는 말이다!\r\n"
 			                		+ "그럼 슬슬 너에게 포켓몬을 선택할 기회를 주겠다!\r\n"
 			                		+ "피카츄, 파이리, 꼬부기 중에 선택을 할 수 있지\r\n"
@@ -185,11 +184,12 @@ public class Main {
 					 		
 					 	}else if(select == 2) {
 					 		String str = "목숨은 총 3번 주어지고\n"
-					 				+ "공격횟수 및 몬스터 볼 횟수도 3번 주어진다.\n"
-					 				+ "공격시 야생 몬스터의 HP가 10 줄어들면서\n"
-					 				+ "몬스터볼로 잡을 수 있는 확률 UP! BUT 내 포인트는 DOWN!\n"
-					 				+ "몬스터볼로 잡으면 야생 포켓몬의 남은 HP은 모두 자신의 포인트!\n"
-					 				+ "야생 몬스터의 HP가 높을수록 잡기 어려우니 공격횟수와 몬스터볼을 잘 활용해야 한다!";
+					 				+ "공격횟수 및 몬스터볼 횟수도 3번 주어진다.\n"
+					 				+ "① 공격 시, 야생 몬스터의 HP가 10 줄어들면서\n"
+					 				+ "  몬스터볼로 잡을 수 있는 확률 UP! BUT 내 포인트는 DOWN!\n"
+					 				+ "② 몬스터볼로 잡으면 야생 포켓몬의 남은 HP은 모두 자신의 포인트!\n"
+					 				+ "  야생 몬스터의 HP가 높을수록 잡기 어렵고/n"
+					 				+ "  주어진 몬스터볼을 모두 사용하면 목숨 1개가 사라지니 공격횟수와 몬스터볼을 잘 활용해야 한다!";
 					 				String[] cut = str.split("");
 					                try {
 					                    for (int i = 0; i < cut.length; i++) {
@@ -201,6 +201,7 @@ public class Main {
 					                } 
 					                System.out.println();
 					                System.out.println();
+					                
 					 	
 					 	}else if(select == 3) {
 							ArrayList<PlayDTO> list = pldao.ranking();
