@@ -37,7 +37,7 @@ public class Main {
 				
 				UserDTO result = udao.login(dto);
 				if(result!=null) {
-					
+					System.out.println("입력된 정보가 회원정보와 일치하지 않습니다.");
 				}
 				
 				
