@@ -46,6 +46,7 @@ public class Main {
 					System.out.print("[1]게임시작 [2]게임규칙 [3]랭킹보기 [4]닉네임수정 [5]로그아웃 >> ");
 					int select = sc.nextInt();
 					 	if(select == 1) {
+					 		bgm.bgmStop();
 					 		ascii.dr();
 					 		String str = "이야~ 오래 기다리게 했다!\r\n"
 			                		+ "포켓몬스터의 세계에 잘왔단다!\r\n"
@@ -97,16 +98,17 @@ public class Main {
 			                int heart = 3;
 			                int chance = 4;
 			                
-			                System.out.println(choice1 + "! 이제 모험을 떠나볼까?!"
+			                System.out.println(choice1 + "! 이제 모험을 떠나볼까?!\n"
 			                		+ "모험중...\n"
 			                		+ "부스럭 부스럭\n"
-			                		+ "이게 무슨 소리지...?\n"
-			                		+ "(야생의 포켓몬이 등장했다!)");
+			                		+ "이게 무슨 소리지...?\n");
 			                
 			                Random rd = new Random();
-			                podao.showPocket();
+			                PocketDTO[] pock = podao.showPocket();
 			                
-			                
+			                int num2 = rd.nextInt(pock.length);
+			                System.out.println("야생의 "+ pock[num2].getPM_NAME()+"이(가) 등장했다!!\n"
+			                					+"HP : "+pock[num2].getPM_HP());
 			                
 					 		
 					 	}else if(select == 2) {
