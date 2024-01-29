@@ -1,6 +1,7 @@
 package pocketmon_catch;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javazoom.jl.player.MP3Player;
@@ -44,18 +45,19 @@ public class Main {
 				
 				
 			}else if(choice==2) {
-//				ArrayList<PlayDTO> list = pldao.ranking();
-				System.out.println("랭킹\t닉네임\t점수");
-				System.out.println("--------------------");
-//				for(int i=0; i<list.size(); i++) {
-//					System.out.println((i+1)+"위"+"\t"+list.get(i).getNICK() + "\t" + list.get(i).getSCORE());
-//				}
+
 				
 				
 				
 				
 				
 			}else if(choice==3) {
+				ArrayList<PlayDTO> list = pldao.ranking();
+				System.out.println("랭킹\t닉네임\t점수");
+				System.out.println("--------------------");
+				for(int i=0; i<list.size(); i++) {
+					System.out.println((i+1)+"위"+"\t"+list.get(i).getNICK() + "\t" + list.get(i).getSCORE());
+				}
 				
 			}else if(choice==4) {
 				
