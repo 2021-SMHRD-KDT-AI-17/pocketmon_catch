@@ -120,7 +120,7 @@ public class Main {
 			                int choice2 = sc.nextInt();
 			                
 			                if (choice2 == 1) {
-			                	System.out.println("가라!" + choice1 + "!!");
+			                	System.out.println("가라! " + choice1 + "!!");
 			                	
 			                	pb.atk();
 			                	System.out.println("효과는 굉장했다!\n"
