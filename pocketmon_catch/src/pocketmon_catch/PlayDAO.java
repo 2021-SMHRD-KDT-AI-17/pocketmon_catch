@@ -20,6 +20,8 @@ public class PlayDAO {
 			String url = "jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe";
 			String user = "campus_23K_AI17_p1_1";  
 			String password = "smhrd1"; 
+			
+			conn = DriverManager.getConnection(url, user, password);
 						
 		} catch (Exception e) {
 			e.printStackTrace(); 

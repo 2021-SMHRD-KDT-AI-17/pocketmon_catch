@@ -104,6 +104,17 @@ public class Main {
 				}
 				
 			}else if(choice==5) {
+				System.out.print("삭제할 아이디입력:");
+				String deleteId = sc.next();
+				//비밀번호 확인
+				System.out.print("로그인한 비밀번호를 입력하세요 : ");
+				String deletePw = sc.next();
+				
+				UserDTO dto = new UserDTO();
+				dto.setID(deleteId);
+				dto.setPW(deletePw);
+				
+				int cnt = udao.delete(dto);
 				
 			}else {
 				bgm.bgmStop();
