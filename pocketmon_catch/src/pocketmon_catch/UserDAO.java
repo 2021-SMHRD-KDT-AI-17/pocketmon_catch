@@ -19,7 +19,9 @@ public class UserDAO {
 			String url = "jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe";
 			String user = "campus_23K_AI17_p1_1";  
 			String password = "smhrd1"; 
-						
+			
+			conn = DriverManager.getConnection(url, user, password);
+			
 		} catch (Exception e) {
 			e.printStackTrace(); 
 		}
@@ -131,14 +133,16 @@ public class UserDAO {
 	
 	// ======= 닉네임 수정
 	
-	public int delete(String deleteId) {
+	public int delete(UserDTO dto) {
 		int cnt = 0;
 		try {
 			getConn();
-			String sql = "DELETE FROM PM_USER WHERE ID = ?";
+			String sql = "DELETE FROM PM_USER WHERE ID = ? AND PW =?";
 			
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, deleteId);
+			psmt.setString(1, dto.getID());
+			psmt.setString(2, dto.getPW());
+			
 			
 			cnt = psmt.executeUpdate();
 			if(cnt>0) {
