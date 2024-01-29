@@ -52,7 +52,7 @@ public class PocketDAO {
 	
 	
 	
-	public void showPocket() {
+	public PocketDTO[] showPocket() {
 
 		PocketDTO[] pock = new PocketDTO[15];
 
@@ -86,6 +86,7 @@ public class PocketDAO {
 			close();
 		}
 		
+		return pock;
 	}
 
 }
