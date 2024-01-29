@@ -45,22 +45,43 @@ public class Main {
 				
 				
 			}else if(choice==2) {
+				String joinId = "";
+				String joinPw = "";
+				String joinNick = "";
+				
+				
+				while(true) {
 			      System.out.print("가입할 아이디 : ");
-			      String joinId = sc.next();
+			      joinId = sc.next();
 			      
 			      int result = udao.Idcheck(joinId);
 			      
 			      if(result == 0) {
 			         System.out.println("사용가능한 ID 입니다.");
+			         break;
 			      }else {
 			         System.out.println("중복된 ID 입니다.");
 			         continue;
 			      }
+				}
+				
+				System.out.print("가입할 비밀번호 입력 : ");
+			    joinPw = sc.next();
 			      
-			      System.out.print("가입할 비밀번호 입력 : ");
-			      String joinPw = sc.next();
+				while(true) {
 			      System.out.print("가입할 닉네임 입력 : ");
-			      String joinNick = sc.next();
+			      joinNick = sc.next();
+			      
+			      int result2 = udao.Nickcheck(joinNick);
+			      if (result2 == 0) {
+			    	  System.out.println("사용가능한 닉네임 입니다.");
+			    	  break;
+			      } else {
+			    	  System.out.println("중복된 닉네임 입니다.");
+			    	  continue;
+			      }
+				}
+			      
 
 			      UserDTO dto = new UserDTO();
 			      dto.setID(joinId);
