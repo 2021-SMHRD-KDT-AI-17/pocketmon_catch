@@ -48,6 +48,7 @@ public class Main {
 						if (select == 1) {
 							bgm.bgmStop();
 							ascii.dr();
+							bgm.movingPlay();
 							String str = "이야~ " + result.getNICK() + "아(야) 포켓몬스터의 세계에 잘왔단다!\r\n" + "나의 이름은 오박사\r\n"
 									+ "모두로부터는 포켓몬박사라고 존경받고 있단다\r\n" + "이 세계에는 포켓몬스터라고 불려지는 생명체들이 도처에 살고있다\r\n"
 									+ "사람은 포켓몬들과 정답게 지내거나\r\n" + "함께 싸우거나 서로 도와가며 살아가고 있단다\r\n"
@@ -59,12 +60,13 @@ public class Main {
 							try {
 								for (int i = 0; i < cut.length; i++) {
 									System.out.print(cut[i]);
-									Thread.sleep(10);
+									Thread.sleep(50);
 								}
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
 							System.out.println();
+							bgm.bgmStop();
 							bgm.ohbakPlay();
 
 							String choice1 = "";
@@ -87,6 +89,13 @@ public class Main {
 							}
 							bgm.bgmStop();
 							System.out.println(result.getNICK() + "은(는) 오박사님에게 몬스터볼 3개를 받았다!");
+							
+							try {
+								Thread.sleep(2000);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+							
 							int ball = 3;
 							int heart = 3;
 							int chance = 4;
@@ -94,6 +103,7 @@ public class Main {
 							System.out.println(
 									choice1 + "! 이제 모험을 떠나볼까?!\n" + "모험중...\n" + "부스럭 부스럭\n" + "이게 무슨 소리지...?\n");
 
+							
 							while (true) {
 								if (heart == 0) {
 									PlayDTO dto1 = new PlayDTO();
@@ -113,6 +123,7 @@ public class Main {
 
 								bgm.battlePlay();
 								int num2 = rd.nextInt(pock.length);
+								ascii.pk(num2);
 								System.out.println("야생의 " + pock[num2].getPM_NAME() + "이(가) 등장했다!!\n" + "HP : "
 										+ pock[num2].getPM_HP());
 
@@ -120,6 +131,7 @@ public class Main {
 
 								System.out.println(pock[num2].getPM_NAME() + "와(과) 배틀이 시작되었다!");
 								int atk1 = 3;
+								
 								while (true) {
 									System.out.println();
 									System.out.print("[1] 공격하기 \n" + "[2] 몬스터볼 던지기\n" + "[3] 도망가기\n" + ">> ");
@@ -144,6 +156,7 @@ public class Main {
 											}
 										}
 									} else if (choice2 == 2) {
+										bgm.bgmStop();
 										bgm.monsterBallPlay();
 										ascii.ballTrow();
 										System.out.println("가라! 몬스터볼!!");
@@ -156,6 +169,7 @@ public class Main {
 
 										int monCatch = rd.nextInt(pb.getPM_HP()) + 1;
 										if (monCatch <= 10) {
+											
 											bgm.getPlay();
 											ascii.ball();
 											System.out.println(pock[num2].getPM_NAME() + "(을)를 잡아냈다!!  획득 POINT : "
@@ -173,6 +187,7 @@ public class Main {
 											} catch (InterruptedException e) {
 												e.printStackTrace();
 											}
+											
 											System.out.println("다른 포켓몬을 찾아보자..\n"+"뚜벅..뚜벅..");
 											System.out.println();
 											try {
@@ -186,13 +201,16 @@ public class Main {
 											System.out.println(pock[num2].getPM_NAME() + "(을)를 잡지못했다..");
 											ball -= 1;
 											System.out.println("( 남은 몬스터볼 개수 : " + ball + "개 )");
+											bgm.battlePlay2();
 											if (ball == 0) {
 												System.out.println("몬스터볼을 모두 사용하여 목숨이 하나 차감됩니다!");
 												heart -= 1;
 												System.out.println("남은 목숨 : " + heart + "번");
 												// 새로운 목숨을 시작할 때 볼 개수 초기화
 												System.out.println();
+												
 												if (heart != 0) {
+													bgm.bgmStop();
 													System.out.println("몬스터볼이 떨어졌다, 오박사님을 찾아가자..\n" + "뚜벅..뚜벅..");
 													try {
 														Thread.sleep(2000);
@@ -220,7 +238,8 @@ public class Main {
 										System.out.println("도망가기를 선택 하셨습니다.");
 										System.out.print("정말로 도망가시겠습니까?  [1]도망간다 [2]계속 이어간다 >> ");
 										int answer = sc.nextInt();
-
+										
+										bgm.bgmStop();
 										if (answer == 1) {
 											System.out.println("포켓몬한테서 도망쳤다...");
 											chance -= 1;
@@ -255,7 +274,9 @@ public class Main {
 									}
 
 								}
+								
 							}
+							
 
 						} else if (select == 2) {
 							String str = "목숨은 총 3번 주어지고\n" + "공격횟수 및 몬스터볼 횟수도 3번 주어진다.\n"
