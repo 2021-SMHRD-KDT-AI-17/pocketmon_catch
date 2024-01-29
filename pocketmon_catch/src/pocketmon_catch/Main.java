@@ -236,13 +236,26 @@ public class Main {
 			      int result2 = udao.Nickcheck(joinNick);
 			      if (result2 == 0) {
 			    	  System.out.println("사용가능한 닉네임 입니다.");
+						
+
 			    	  break;
+			    	  
 			      } else {
 			    	  System.out.println("중복된 닉네임 입니다.");
 			    	  continue;
 			      }
-				}
 			      
+
+				}
+				
+		    	  UserDTO udto = new UserDTO();
+					udto.setID(joinId);
+					udto.setPW(joinPw);
+					udto.setNICK(joinNick);
+
+					int cnt = udao.join(udto);  
+
+
 
 
 			} else if (choice == 3) {
