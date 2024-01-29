@@ -12,6 +12,8 @@
 ## 📝 유스케이스
 ## 〰 서비스 흐름도
 ## ➰ ER 다이어그램
+![다이어그램](https://github.com/2021-SMHRD-KDT-AI-17/pocketmon_catch/assets/157353975/cb2063a7-2b1a-4e0c-ab60-fac1481d8e1f)
+
 ## 💡 화면구성
 ## 👨‍👨‍👧‍👦 팀원역할
 ## 🧨 트러블슈팅
