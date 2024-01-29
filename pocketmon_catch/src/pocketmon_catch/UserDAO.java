@@ -66,7 +66,7 @@ public class UserDAO {
 				
 
 				
-				System.out.println(getId+"/"+getPw+"/"+getNick);
+				System.out.println(getNick+"회원이 로그인 되었습니다.");
 			}
 			
 		}  catch (Exception e) {
