@@ -1,4 +1,4 @@
-# 🎇포켓몬 캐치 게임 (팀명 : 포켓몬 JAVA조)
+# 🎇포켓몬 캐치 게임 (팀명 : 포켓몬을 JAVA조)
 ![PPT메인](https://github.com/2021-SMHRD-KDT-AI-17/pocketmon_catch/assets/157354042/d936b0c7-2e6f-41d4-af8d-e22ebfe9661f)
 <br>
 
