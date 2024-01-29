@@ -102,6 +102,11 @@ public class Main {
 			                		+ "부스럭 부스럭\n"
 			                		+ "이게 무슨 소리지...?\n");
 			                
+			                while(true) {
+			                	if (heart == 0) {
+			                		System.out.println("GAME OVER");
+			                		break;
+			                	}
 			                Random rd = new Random();
 			                PocketDTO[] pock = podao.showPocket();
 			                
@@ -115,7 +120,8 @@ public class Main {
 			                System.out.println(pock[num2].getPM_NAME()+"와(과) 배틀이 시작되었다!");
 			                int atk1 = 3;
 			                while(true) {
-			                System.out.println("[1] 공격하기 \n"
+
+			                System.out.print("[1] 공격하기 \n"
 			                		+ "[2] 몬스터볼 던지기\n"
 			                		+ "[3] 도망가기\n"
 			                		+ ">> ");
@@ -178,7 +184,8 @@ public class Main {
 			                	bgm.bgmStop();
 			                }
 			                
-			               } 
+			               }
+			                }
 			                
 			                
 					 		
