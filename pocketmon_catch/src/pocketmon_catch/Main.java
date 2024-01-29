@@ -103,8 +103,14 @@ public class Main {
 							System.out.println(
 									choice1 + "! 이제 모험을 떠나볼까?!\n" + "모험중...\n" + "부스럭 부스럭\n" + "이게 무슨 소리지...?\n");
 
+							int choice3 = 0;
 							
 							while (true) {
+								
+								if(choice3 == 1) {
+									break;
+								}
+								
 								if (heart == 0) {
 									PlayDTO dto1 = new PlayDTO();
 									
@@ -134,7 +140,7 @@ public class Main {
 								
 								while (true) {
 									System.out.println();
-									System.out.print("[1] 공격하기 \n" + "[2] 몬스터볼 던지기\n" + "[3] 도망가기\n" + ">> ");
+									System.out.print("[1] 공격하기 \n" + "[2] 몬스터볼 던지기\n" + "[3] 도망가기\n" + "[4] 게임포기\n" + ">> ");
 									int choice2 = sc.nextInt();
 
 									if (choice2 == 1) {
@@ -209,6 +215,7 @@ public class Main {
 												// 새로운 목숨을 시작할 때 볼 개수 초기화
 												System.out.println();
 												
+												
 												if (heart != 0) {
 													bgm.bgmStop();
 													System.out.println("몬스터볼이 떨어졌다, 오박사님을 찾아가자..\n" + "뚜벅..뚜벅..");
@@ -234,7 +241,7 @@ public class Main {
 
 										}
 
-									} else {
+									} else if(choice2 == 3){
 										System.out.println("도망가기를 선택 하셨습니다.");
 										System.out.print("정말로 도망가시겠습니까?  [1]도망간다 [2]계속 이어간다 >> ");
 										int answer = sc.nextInt();
@@ -269,6 +276,19 @@ public class Main {
 											}
 											break;
 										} else {
+											continue;
+										}
+									}else {
+										System.out.print("※주의※ 포기한 게임은 랭킹에 반영되지 않습니다.\n"+"게임을 정말로 포기하시겠습니까? (Y/N) >> ");
+										String gameClose = sc.next();
+										
+										if(gameClose.equals("Y")) {
+											bgm.bgmStop();
+											System.out.println("게임을 포기합니다..");
+											choice3 = 1;
+											break;
+										}else {
+											System.out.println("게임을 이어나갑니다!");
 											continue;
 										}
 									}
