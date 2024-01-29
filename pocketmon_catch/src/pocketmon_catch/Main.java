@@ -34,9 +34,40 @@ public class Main {
 
 				UserDTO result = udao.login(dto);
 
-				if(result!=null) {
+				if(result == null) {
 					System.out.println("입력된 정보가 회원정보와 일치하지 않습니다.");
+				}else {
+	                String str = "이야~ 오래 기다리게 했다!\r\n"
+	                		+ "포켓몬스터의 세계에 잘왔단다!\r\n"
+	                		+ "나의 이름은 오박사\r\n"
+	                		+ "모두로부터는 포켓몬박사라고 존경받고 있단다\r\n"
+	                		+ "포켓몬스터, 포켓몬\r\n"
+	                		+ "이 세계에는 포켓몬스터라고 불려지는 생명체들이 도처에 살고있다\r\n"
+	                		+ "사람은 포켓몬들과 정답게 지내거나\r\n"
+	                		+ "함께 싸우거나 서로 도와가며 살아가고 있단다\r\n"
+	                		+ "하지만 우리들은 포켓몬 전부를 알고 있지는 못하다\r\n"
+	                		+ "포켓몬의 비밀은 아직도 잔뜩 있다!\r\n"
+	                		+ "나는 그것을 밝혀내기 위하여 매일 포켓몬의 연구를 계속하고 있다는 말이다!\r\n"
+	                		+ "그럼 슬슬 너에게 포켓몬을 선택할 기회를 주겠다!\r\n"
+	                		+ "피카츄, 파이리, 꼬부기 중에 선택을 할 수 있지\r\n"
+	                		+ "너는 어떤 포켓몬을 선택할거니?";
+	                String[] cut = str.split("");
+	                
+	                try {
+	                    for (int i = 0; i < cut.length; i++) {
+	                        System.out.print(cut[i]);
+	                        Thread.sleep(90);
+	                    }
+	                } catch (InterruptedException e) {
+	                    e.printStackTrace();
+	                }
+					
 				}
+				
+				
+				
+				
+				
 
 			}else if(choice==2) {
 				String joinId = "";
