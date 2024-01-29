@@ -36,8 +36,46 @@ public class Main {
 
 				if(result!=null) {
 					System.out.println("입력된 정보가 회원정보와 일치하지 않습니다.");
-
 				}
+
+			}else if(choice==2) {
+				String joinId = "";
+				String joinPw = "";
+				String joinNick = "";
+				
+				
+				while(true) {
+			      System.out.print("가입할 아이디 : ");
+			      joinId = sc.next();
+			      
+			      int result = udao.Idcheck(joinId);
+			      
+			      if(result == 0) {
+			         System.out.println("사용가능한 ID 입니다.");
+			         break;
+			      }else {
+			         System.out.println("중복된 ID 입니다.");
+			         continue;
+			      }
+				}
+				
+				System.out.print("가입할 비밀번호 입력 : ");
+			    joinPw = sc.next();
+			      
+				while(true) {
+			      System.out.print("가입할 닉네임 입력 : ");
+			      joinNick = sc.next();
+			      
+			      int result2 = udao.Nickcheck(joinNick);
+			      if (result2 == 0) {
+			    	  System.out.println("사용가능한 닉네임 입니다.");
+			    	  break;
+			      } else {
+			    	  System.out.println("중복된 닉네임 입니다.");
+			    	  continue;
+			      }
+				}
+			      
 
 			} else if (choice == 2) {
 				System.out.print("가입할 아이디 : ");
