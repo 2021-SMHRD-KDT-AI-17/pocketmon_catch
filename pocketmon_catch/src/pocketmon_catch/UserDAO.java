@@ -21,7 +21,7 @@ public class UserDAO {
 			String password = "smhrd1"; 
 			
 			conn = DriverManager.getConnection(url, user, password);
-			
+						
 		} catch (Exception e) {
 			e.printStackTrace(); 
 		}
