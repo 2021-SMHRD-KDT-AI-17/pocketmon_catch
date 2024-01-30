@@ -111,9 +111,17 @@ public class UserDAO {
 		int cnt = 0;
 		try {
 			getConn();
-			String sql = "UPDATE PM_USER SET Nick = ? WHERE ID = ?";
+			String sql = "UPDATE PM_USER SET NICK = ? WHERE ID = ?";
 			
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getNICK());
+			psmt.setString(2, dto.getID());
+			
+			cnt = psmt.executeUpdate();
+			
+			String sql2 = "UPDATE PM_PLAY SET NICK = ? WHERE ID = ?";
+			
+			psmt = conn.prepareStatement(sql2);
 			psmt.setString(1, dto.getNICK());
 			psmt.setString(2, dto.getID());
 			

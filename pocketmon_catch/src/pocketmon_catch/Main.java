@@ -149,7 +149,9 @@ public class Main {
 									if (choice2 == 1) {
 										if (atk1 == 0) {
 											System.out.println("남은 공격 횟수가 없습니다.");
-										} else {
+										} else if (pb.getPM_HP() <= 10){
+											System.out.println("야생 포켓몬의 HP가 10밖에 남지 않았습니다! 몬스터볼을 던져주세요!!\n" + "※공격하기를 선택해도 공격이 되지 않습니다!※");
+										}else {
 											System.out.println("가라! " + choice1 + "!!");
 											System.out.println();
 											pb.atk();
@@ -175,7 +177,7 @@ public class Main {
 											e.printStackTrace();
 										}
 										bgm.bgmStop();
-
+										
 										int monCatch = rd.nextInt(pb.getPM_HP()) + 1;
 										if (monCatch <= 10) {
 											
@@ -339,6 +341,7 @@ public class Main {
 									int modify = sc.nextInt();
 									if (modify == 1) {
 										UserDTO dto1 = new UserDTO();
+										dto1.setID(result.getID());
 										dto1.setNICK(changeNick);
 										int cnt = udao.Nchange(dto1);
 										break;
