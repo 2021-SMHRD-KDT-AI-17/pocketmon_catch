@@ -23,7 +23,9 @@ public class Main {
 		System.out.println();
 
 		while (true) {
+			if(bgm.bgmIsPlaying() == false) {
 			bgm.ostPlay();
+			}
 			System.out.print("[1]로그인 [2]회원가입 [3]회원탈퇴 [4]게임종료 ");
 			int choice = sc.nextInt();
 			if (choice == 1) {
@@ -112,6 +114,7 @@ public class Main {
 								}
 								
 								if (heart == 0) {
+									bgm.bgmStop();
 									PlayDTO dto1 = new PlayDTO();
 									
 									dto1.setID(result.getID());
