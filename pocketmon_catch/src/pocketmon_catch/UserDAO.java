@@ -145,6 +145,13 @@ public class UserDAO {
 		int cnt = 0;
 		try {
 			getConn();
+			String sql1 = "DELETE FROM PM_PLAY WHERE ID = ?";
+			
+			psmt = conn.prepareStatement(sql1);
+			psmt.setString(1, dto.getID());
+			
+			cnt = psmt.executeUpdate();
+			
 			String sql = "DELETE FROM PM_USER WHERE ID = ? AND PW =?";
 			
 			psmt = conn.prepareStatement(sql);
