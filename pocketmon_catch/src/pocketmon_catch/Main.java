@@ -148,15 +148,15 @@ public class Main {
 
 									if (choice2 == 1) {
 										if (atk1 == 0) {
-											System.out.println("남은 공격횟수가 없습니다.");
+											System.out.println("남은 공격 횟수가 없습니다.");
 										} else {
 											System.out.println("가라! " + choice1 + "!!");
 											System.out.println();
 											pb.atk();
 											atk1--;
 											System.out.println(
-													"효과는 굉장했다!\n" + pock[num2].getPM_NAME() + "의 HP가 10감소했다.\n" +pock[num2].getPM_NAME() +"의"+ "HP는 "
-															+ pb.getPM_HP() + "가 남았다!\n" + "(남은 공격횟수 :" + atk1 + ")");
+													"효과는 굉장했다!\n" + pock[num2].getPM_NAME() + "의 HP가 10감소했다.\n" +pock[num2].getPM_NAME() +"의 "+ "HP는 "
+															+ pb.getPM_HP() + "가 남았다!\n" + "(남은 공격 횟수 :" + atk1 + ")");
 											try {
 												Thread.sleep(1000);
 
